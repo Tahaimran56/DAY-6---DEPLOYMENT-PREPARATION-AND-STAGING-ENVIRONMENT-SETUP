@@ -1,0 +1,137 @@
+# Sanity Data Migration Project Documentation
+
+## Overview
+This document explains the structure, purpose, and functionality of the files used in the Sanity data migration project. It includes details about the migration script, Sanity schema, and the steps taken to successfully migrate and verify data in Sanity Studio.
+
+---
+
+## Files and Their Purpose
+
+### 1. **`data-migration.mjs`**
+**Purpose**: Migrates product data from an external API to the Sanity dataset, uploading images and creating product documents.
+
+#### Key Functions:
+- **`uploadImageToSanity(imageUrl)`**:
+  - Fetches the image from a URL.
+  - Uploads it to Sanity's image asset library.
+  - Returns the `_id` of the uploaded image for referencing in product documents.
+
+- **`importData()`**:
+  - Fetches product data from an API endpoint.
+  - For each product:
+    - Uploads the associated image (if available).
+    - Creates a product document in Sanity with the fetched details.
+
+#### Steps in the Script:
+1. Fetch data from an API endpoint (`https://template-03-api.vercel.app/api/products`).
+2. Upload images to Sanity.
+3. Create product documents in Sanity using the uploaded image references and product details.
+4. Log success or failure for each product.
+
+---
+
+### 2. **`testsanity.js`**
+**Purpose**: Tests the connection between the project and Sanity by fetching existing `product` documents.
+
+#### Functionality:
+- Uses Sanity's client to fetch all `product` documents from the dataset.
+- Logs the results or any errors.
+
+#### Use:
+Run this script to verify that your Sanity connection and dataset configuration are correct.
+
+---
+
+### 3. **`create-product.js`**
+**Purpose**: Manually creates a test product document in Sanity to ensure that data can be added correctly.
+
+#### Functionality:
+- Creates a single product document with sample data.
+- Logs the created document or any errors.
+
+#### Use:
+Use this script to test manual document creation before running the full migration script.
+
+---
+
+### 4. **Sanity Schema Files**
+#### **`products.ts`** (Schema Definition)
+**Purpose**: Defines the structure of the `product` documents in Sanity.
+
+#### Fields:
+- `productName` (String): The name of the product.
+- `category` (String): The category of the product.
+- `price` (Number): The price of the product.
+- `inventory` (Number): The stock available.
+- `colors` (Array): Available colors for the product.
+- `status` (String): Product availability status.
+- `image` (Image): A reference to the product image.
+- `description` (Text): A detailed description of the product.
+
+#### Use:
+This schema ensures all product documents follow a consistent structure in Sanity.
+
+---
+
+### 5. **`.env.local`**
+**Purpose**: Stores sensitive environment variables required for connecting to Sanity and external APIs.
+
+#### Variables:
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`: The Sanity project ID.
+- `NEXT_PUBLIC_SANITY_DATASET`: The dataset name (e.g., `production`).
+- `SANITY_API_TOKEN`: API token with Editor or Administrator permissions.
+
+#### Use:
+This file ensures secure access to Sanity and external APIs without hardcoding credentials into the scripts.
+
+---
+
+### 6. **Vision Tool**
+**Purpose**: A tool within Sanity Studio to query and verify data.
+
+#### Steps to Use:
+1. Open `http://localhost:3000/studio/vision`.
+2. Run GROQ queries, such as:
+   ```groq
+   *[_type == "product"]
+   ```
+   - This fetches all product documents.
+3. Verify the data fetched against the expected results.
+
+---
+
+### 7. **Sanity Studio**
+**Purpose**: A web-based interface to manage and view content in the Sanity dataset.
+
+#### Steps to Add a Product:
+1. Click the **+ (Create)** button in the `Product` section.
+2. Fill in the product details.
+3. Click **Publish** to save the product.
+
+---
+
+## Steps Taken in the Project
+1. **Setup**:
+   - Configured `.env.local` with the required Sanity credentials.
+   - Verified the Sanity connection using `testsanity.js`.
+
+2. **Schema Definition**:
+   - Created `products.ts` to define the `product` schema.
+
+3. **Data Migration**:
+   - Ran `data-migration.mjs` to fetch and import product data into Sanity.
+   - Verified successful uploads and document creation in the terminal logs.
+
+4. **Verification**:
+   - Queried the dataset using the Vision Tool.
+   - Verified that products appeared correctly in Sanity Studio.
+
+---
+
+## Final Notes
+- Ensure the Sanity API token has appropriate permissions.
+- Always test connection and schema functionality before running migration scripts.
+- Use the Vision Tool to debug or verify data after running scripts.
+
+If you encounter issues, revisit the logs or check the dataset configuration in Sanity Studio.
+

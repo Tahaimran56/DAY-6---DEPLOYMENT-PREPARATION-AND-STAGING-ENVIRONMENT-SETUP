@@ -1,0 +1,120 @@
+1. Project Overview
+
+Today’s work focused on enhancing and finalizing key components of the project, including integrating dynamic routing, implementing wishlist functionality, setting up checkout flow, and improving overall application usability.
+
+2. Steps Taken
+
+Navbar Component
+
+Added navigation links for Home, Cart, Wishlist, Products, and Checkout.
+
+Ensured responsive styling with Tailwind CSS.
+
+Product Listing Page
+
+Displayed products dynamically fetched from the API.
+
+Implemented category-based filtering.
+
+Added an Add to Wishlist button for each product.
+
+Product Detail Page
+
+Integrated dynamic routing for individual products under pages/products/[id].
+
+Displayed detailed product information.
+
+Added Add to Cart and Add to Wishlist functionality using Context API.
+
+Fixed routing issues to ensure the page loads correctly.
+
+Wishlist Functionality
+
+Created a WishlistContext for managing wishlist state.
+
+Persisted wishlist data in local storage for future sessions.
+
+Built a wishlist page to display saved items with options to remove them.
+
+Checkout Flow
+
+Developed a multi-step form with sections for:
+
+Billing Address
+
+Shipping Address
+
+Payment Details
+
+Implemented form validation and navigation between steps.
+
+Centralized form data in a single state object.
+
+Reviews and Ratings Component
+
+Added the ability for users to view and submit reviews for individual products.
+
+Dynamically displayed average ratings and user-submitted reviews.
+
+3. Challenges Faced and Solutions
+
+Dynamic Routing Issue
+
+Challenge: The Product Detail Page wasn’t loading due to incorrect folder structure and missing configurations.
+
+Solution: Corrected the file structure under pages/products/[id] and verified dynamic routing logic.
+
+Context API State Management
+
+Challenge: Managing shared states for cart and wishlist.
+
+Solution: Created CartContext and WishlistContext for centralized state management, ensuring seamless data flow across components.
+
+Form Navigation in Checkout Flow
+
+Challenge: Ensuring smooth navigation between multi-step forms while retaining data.
+
+Solution: Stored form data in a centralized state object and validated fields at each step.
+
+4. Key Accomplishments
+
+Successfully implemented a wishlist with persistent state.
+
+Resolved dynamic routing issues for the Product Detail Page.
+
+Built a functional checkout flow with form validation.
+
+Enhanced user experience with responsive design and dynamic components.
+
+Integrated user reviews and ratings for products.
+
+5. Best Practices Followed
+
+Code Organization
+
+Segregated components, context, and API logic for better readability and maintenance.
+
+Responsive Design
+
+Ensured all components are mobile-friendly using Tailwind CSS.
+
+Error Handling
+
+Handled API errors gracefully with console messages and user feedback.
+
+Version Control
+
+Maintained changes incrementally using Git.
+
+Reusable Components
+
+Developed modular and reusable components for better scalability.
+
+6. Future Enhancements
+
+Implement authentication for user-specific data (e.g., profile, order history).
+
+Optimize API calls with caching techniques.
+
+Add payment gateway integration to the checkout flow.
+
