@@ -1,0 +1,8 @@
+Test Case,Test Case Description,Test Steps,Expected Result,Actual Result,Status,Severity Level,Assigned To,Remarks
+TC001,Verify the Homepage loads successfully,1. Open Homepage,Homepage should load,Homepage loaded successfully,Passed,Low,Developer,No issues found
+TC002,Verify product details load correctly,1. Open Product details page,Product details should display,Product details displayed correctly,Passed,Low,Developer,No issues found
+TC003,Verify API response for /api/products,1. Open API response endpoint,API response should return valid JSON,API response returned valid JSON,Passed,Low,Developer,No issues found
+TC004,Verify cart page loads successfully,1. Open Cart page,Cart page should display correctly,Cart page displayed correctly,Passed,Low,Developer,No issues found
+TC005,Verify help page loads successfully,1. Open help page,Help page should load,Help page loaded successfully,Passed,Low,Developer,No issues found
+TC006,Verify profile page loads successfully,1. Open profile page,Profile page should load,Profile page loaded successfully,Passed,Low,Developer,No issues found
+TC007,Verify studio page loads successfully,1. Open studio page,Studio page should load,Studio page loaded successfully,Passed,Low,Developer,No issues found
