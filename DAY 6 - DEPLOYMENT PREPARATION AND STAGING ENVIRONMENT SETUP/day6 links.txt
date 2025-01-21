@@ -1,3 +1,0 @@
-DAY 6 - DEPLOYMENT PREPARATION AND STAGING ENVIRONMENT SETUP
-github link https://github.com/Tahaimran56/NikeEcommerce.git
-versel link https://nike-ecommercetaha.vercel.app/
